@@ -1,0 +1,367 @@
+<html>
+<head>
+    <title>My Personal Homepage</title>
+
+    <style>
+        body {
+            background-image: url("https://wallpapershome.com/images/pages/pic_h/27003.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: darkblue;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        button {
+            background-color: #1e2a56;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 16px;
+            margin: 8px 6px 8px 0;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #344eaa;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        body.dark-mode {
+            background-image: none;
+            background-color: #101525;
+            color: #e5e9ff;
+        }
+
+        body.dark-mode section {
+            background-color: #202943;
+            color: #e5e9ff;
+        }
+
+        body.dark-mode h2 {
+            color: #cbd5ff;
+        }
+
+        body.dark-mode .quote {
+            background-color: #303b5b;
+            border-left-color: #aebfff;
+        }
+
+        body.dark-mode .hobby {
+            border-top-color: #465171;
+        }
+
+        body.dark-mode a {
+            color: #aebfff;
+        }
+
+        header {
+            background-color: rgba(30, 42, 86, 0.96);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            color: #dce4ff;
+        }
+
+        nav {
+            background-color: #141d3d;
+            text-align: center;
+            padding: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #aebfff;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 25px auto;
+            padding: 0 18px;
+        }
+
+        section {
+            background-color: rgba(255, 255, 255, 0.96);
+            margin-bottom: 22px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(20, 29, 61, 0.12);
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(20, 29, 61, 0.18);
+        }
+
+        h2 {
+            color: #1e2a56;
+            margin-top: 0;
+        }
+
+        .hobby {
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid #e1e5ef;
+        }
+
+        .hobby img {
+            display: inline-block;
+            width: 100%;
+            max-width: 260px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 5px 10px 8px 0;
+            box-shadow: 0 3px 8px rgba(20, 29, 61, 0.15);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .hobby img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 14px rgba(20, 29, 61, 0.25);
+        }
+
+        .quote {
+            background-color: #eef1ff;
+            border-left: 5px solid #1e2a56;
+            padding: 12px 18px;
+            margin: 18px 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        #greeting {
+            font-weight: bold;
+            color: #344eaa;
+        }
+
+        body.dark-mode #greeting {
+            color: #cbd5ff;
+        }
+
+        #clock {
+            margin-top: 6px;
+            color: #dce4ff;
+            font-size: 14px;
+        }
+
+        a {
+            color: #344eaa;
+        }
+
+        footer {
+            background-color: #141d3d;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 29px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px 8px;
+            }
+
+            section {
+                padding: 18px;
+            }
+
+            .hobby img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="top">
+        <h1>Hellooo, I'm Zack!</h1>
+        <p>This is a small personal homepage to talk about the things I enjoy.</p>
+    </header>
+
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#hobbies">My Hobbies</a>
+        <a href="#favourites">A Favourite Quote</a>
+    </nav>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                Welcome to my personal homepage! I'm someone who really really enjoysspending time on my interests during my free time.
+            </p>
+            <p>
+                When I'm not busy with school or other responsibilities, I usually enjoy
+                building model kits, playing badminton, gaming, taking photos, or watching
+                movies (even the bad ones yes).
+            </p>
+        </section>
+
+        <section id="hobbies">
+            <h2>Things I Enjoy</h2>
+            <p>Here are a few of my favourite ways to spend my free time.</p>
+            <button id="hobbyButton" onclick="toggleHobbies()">Hide Hobby Descriptions</button>
+
+            <div class="hobby">
+                <h3>1. Building Plastic Model Kits</h3>
+                <img src="https://en.gundam-official.com/media/3f5dcf77ec4a3d7a057e1bdc7eb81f9a/3f5dcf77ec4a3d7a057e1bdc7eb81f9a.jpg" alt="Plastic model kit project">
+                <img src="https://i.redd.it/7c6sc7r27owa1.jpg" alt="A completed plastic model">
+                <p class="hobby-description">
+                    I enjoy putting model kits together piece by piece. It takes patience
+                    and a bit of care, but seeing all the parts come together makes the
+                    effort worth it. It's kind of like building with LEGO, except the
+                    pieces and tools need a little more attention.
+                </p>
+            </div>
+
+            <div class="hobby">
+                <h3>2. Badminton</h3>
+                <img src="https://corporate.bwfbadminton.com/wp-content/uploads/2018/05/Shuttle-AE-2018-613x290.jpg" alt="Badminton being played">
+                <p class="hobby-description">
+                    Badminton is a fun way to stay active. I've especially enjoyed playing
+                    with my family, including my grandfather and my brother.
+                </p>
+                <p>
+                    <a href="https://www.olympics.com/en/news/badminton-guide-how-to-play-rules-olympic-history" target="_blank" rel="noopener noreferrer">Read a badminton guide</a>
+                </p>
+            </div>
+
+            <div class="hobby">
+                <h3>3. Video Games</h3>
+                <img src="https://i.ytimg.com/vi/x7PdF_GhnPY/maxresdefault.jpg" alt="Video game scene">
+                <p class="hobby-description">
+                    I've enjoyed video games since I was just a little kid. I especially
+                    like single-player games because of their stories, characters, and
+                    worlds. 
+                </p>
+            </div>
+
+            <div class="hobby">
+                <h3>4. Photography</h3>
+                <img src="https://sunny16.com/cdn/shop/articles/What_is_Stock_Photography_Business_-_Stock_Photography_Examples_-_Header_-_Sunny_16_bb6dd35b-1406-401f-a9e9-93e58d0acef3.jpg?v=1746484948" alt="Photography example">
+                <img src="https://images.pexels.com/photos/2931618/pexels-photo-2931618.jpeg" alt="Scenery photographed outdoors">
+                <p class="hobby-description">
+                    I like taking pictures of things that catch my attention, especially
+                    scenery and moments during events. I don't have any fancy equipment but its still a ton of fun.
+                </p>
+            </div>
+
+            <div class="hobby">
+                <h3>5. Watching Movies</h3>
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/069/700/521/small/person-watching-a-blank-movie-screen-in-an-empty-cinema-photo.jpg" alt="A person watching a movie in a cinema">
+                <p class="hobby-description">
+                    Watching movies is one of my favourite ways to relax after a long day.
+                    I enjoy films with interesting stories or great visuals. If a movie
+                    keeps me entertained from beginning to end, there's a really good chance I'll probahly
+                    watch it again.
+                </p>
+            </div>
+        </section>
+
+        <section id="favourites">
+            <h2>A Quote I Like</h2>
+            <p>One line from a game that has stuck with me is:</p>
+            <div class="quote">
+                “Do not be sorry. Be better.”
+            </div>
+            <p>
+                This quote is from Kratos in the
+                <a href="https://en.wikipedia.org/wiki/God_of_War_(2018_video_game)" target="_blank" rel="noopener noreferrer">God of War</a>
+                game. I like it because it reminds me that learning from mistakes and
+                improving matters more than just feeling bad about them.
+            </p>
+        </section>
+
+        <section>
+            <h2>That's Me!</h2>
+            <p>
+                Thanks for stopping by, these are just a few
+                things I enjoy. Theres a funny button below you should click that can send you to the top.
+            </p>
+            <button onclick="showGreeting()">Click me!</button>
+            <button onclick="changeTheme()">Change Theme</button>
+            <p id="greeting"></p>
+            <p><a href="#top">Back to the top ↑</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made by Zachary | My Personal Homepage</p>
+        <p id="clock"></p>
+    </footer>
+
+    <script>
+        function showGreeting() {
+            document.getElementById("greeting").innerHTML =
+                "Hello there! Thanks for visiting my homepage! :D";
+        }
+        function toggleHobbies() {
+            var descriptions = document.getElementsByClassName("hobby-description");
+            var button = document.getElementById("hobbyButton");
+
+            for (var i = 0; i < descriptions.length; i++) {
+                if (descriptions[i].style.display == "none") {
+                    descriptions[i].style.display = "block";
+                    button.innerHTML = "Hide Hobby Descriptions";
+                } else {
+                    descriptions[i].style.display = "none";
+                    button.innerHTML = "Show Hobby Descriptions";
+                }
+            }
+        }
+
+        function changeTheme() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        // Display the current time
+        function updateClock() {
+            var now = new Date();
+            document.getElementById("clock").innerHTML =
+                "Current time: " + now.toLocaleTimeString();
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
