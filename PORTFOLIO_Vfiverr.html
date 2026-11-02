@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zachary Tristan Gary - personal portfolio and resume website.">
+    <title>Zachary Tristan Gary | Portfolio</title>
+    <style>
+
+        :root {
+            --background: #090e1c;
+            --surface: #111a30;
+            --surface-light: #192644;
+            --surface-hover: #202f52;
+            --text: #f0f3ff;
+            --muted: #aab5d2;
+            --accent: #91a4ff;
+            --accent-bright: #c0caff;
+            --border: rgba(176, 190, 255, 0.16);
+            --shadow: rgba(0, 0, 0, 0.24);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            background:
+                linear-gradient(rgba(7, 12, 27, 0.84), rgba(7, 12, 27, 0.91)),
+                url("https://wallpapershome.com/images/pages/pic_h/27003.jpg") center / cover fixed;
+            background-color: var(--background);
+            color: var(--text);
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light-mode {
+            --background: #eef1fb;
+            --surface: #ffffff;
+            --surface-light: #f5f6ff;
+            --surface-hover: #e9edff;
+            --text: #17213c;
+            --muted: #5d6884;
+            --accent: #465dcc;
+            --accent-bright: #3448b5;
+            --border: rgba(45, 62, 120, 0.16);
+            --shadow: rgba(37, 48, 88, 0.10);
+            background:
+                linear-gradient(rgba(13, 20, 43, 0.76), rgba(13, 20, 43, 0.84)),
+                url("https://wallpapershome.com/images/pages/pic_h/27003.jpg") center / cover fixed;
+            background-color: var(--background);
+        }
+
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 3px solid var(--accent-bright);
+            outline-offset: 4px;
+        }
+
+        button, input, textarea {
+            font: inherit;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -60px;
+            left: 15px;
+            z-index: 100;
+            background: #7187f5;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 6px;
+        }
+
+        .skip-link:focus {
+            top: 12px;
+        }
+
+        .scroll-track {
+            height: 3px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+        }
+
+        .scroll-progress {
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #7187f5, #bd8bfa);
+        }
+
+        header {
+            min-height: 490px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+            padding: 78px 7%;
+            background:
+                linear-gradient(100deg, rgba(12, 19, 43, 0.97) 5%, rgba(23, 29, 65, 0.86) 58%, rgba(28, 23, 59, 0.72)),
+                url("https://wallpapershome.com/images/pages/pic_h/27003.jpg") center / cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before, header::after {
+            content: "";
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        header::before {
+            width: 470px;
+            height: 470px;
+            right: -145px;
+            top: -210px;
+            box-shadow: 0 0 0 35px rgba(255, 255, 255, 0.025), 0 0 0 70px rgba(255, 255, 255, 0.02);
+        }
+
+        header::after {
+            width: 330px;
+            height: 330px;
+            left: -130px;
+            bottom: -190px;
+            box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.025);
+        }
+
+        .hero-layout {
+            width: min(1120px, 100%);
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+            align-items: center;
+            gap: clamp(30px, 6vw, 80px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content .intro {
+            margin-left: 0;
+        }
+
+        .hero-content #greeting {
+            margin-left: 0;
+        }
+
+        .hero-content .hero-actions {
+            justify-content: flex-start;
+        }
+
+        .hero-visual {
+            min-height: 330px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-photo {
+            position: absolute;
+            overflow: hidden;
+            border: 5px solid rgba(255, 255, 255, 0.82);
+            border-radius: 16px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
+            background: #18213d;
+        }
+
+        .hero-photo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-photo-main {
+            width: min(74%, 330px);
+            height: 250px;
+            transform: rotate(3deg);
+            z-index: 2;
+        }
+
+        .hero-photo-small {
+            width: 155px;
+            height: 112px;
+            z-index: 3;
+        }
+
+        .hero-photo-one {
+            top: 5px;
+            right: 0;
+            transform: rotate(8deg);
+        }
+
+        .hero-photo-two {
+            bottom: 4px;
+            left: 0;
+            transform: rotate(-8deg);
+        }
+
+        .hero-caption {
+            position: absolute;
+            bottom: -8px;
+            right: 10px;
+            z-index: 4;
+            padding: 8px 13px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 30px;
+            background: rgba(12, 18, 36, 0.82);
+            color: #e5eaff;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .top-controls {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin: 0 0 12px;
+        }
+
+        header .eyebrow {
+            color: #c4ceff;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(43px, 7vw, 78px);
+            line-height: 1.08;
+            letter-spacing: -2.5px;
+        }
+
+        header h1 span {
+            color: #aebaff;
+        }
+
+        .intro {
+            max-width: 590px;
+            margin: 18px auto 12px;
+            color: #d2d9f3;
+            font-size: 17px;
+        }
+
+        #greeting {
+            min-height: 24px;
+            color: #c5ceff;
+            font-size: 13px;
+            margin: 0 auto 20px;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .primary-link, .secondary-link {
+            display: inline-block;
+            padding: 11px 18px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .primary-link {
+            background: linear-gradient(135deg, #7187f5, #8d73dc);
+            color: white;
+        }
+
+        .secondary-link {
+            border: 1px solid rgba(213, 220, 255, 0.38);
+            color: white;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .primary-link:hover, .secondary-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .theme-button {
+            background: rgba(9, 14, 28, 0.35);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 30px;
+            padding: 8px 13px;
+            font-size: 12px;
+        }
+
+        nav {
+            background-color: rgba(12, 18, 36, 0.94);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 18px;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(14px);
+        }
+
+        body.light-mode nav {
+            background-color: rgba(255, 255, 255, 0.93);
+        }
+
+        .nav-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 58px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(38px, 6vw, 82px);
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 10px 4px;
+            letter-spacing: 0.3px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-bright);
+        }
+
+        .menu-button {
+            display: none;
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: 7px 10px;
+        }
+
+        main {
+            max-width: 1120px;
+            margin: 45px auto;
+            padding: 0 22px;
+        }
+
+        section {
+            background: linear-gradient(145deg, var(--surface), var(--surface-light));
+            border: 1px solid var(--border);
+            margin-bottom: 25px;
+            padding: clamp(22px, 4vw, 38px);
+            border-radius: 16px;
+            box-shadow: 0 15px 45px var(--shadow);
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: clamp(26px, 4vw, 34px);
+            margin: 0 0 8px;
+        }
+
+        h3 {
+            color: var(--text);
+        }
+
+        .section-intro, section p, section li {
+            color: var(--muted);
+        }
+
+
+        .about-photo-ribbon {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 13px;
+            margin: 25px 0 22px;
+        }
+
+        .about-photo-ribbon figure {
+            margin: 0;
+            min-width: 0;
+            position: relative;
+            overflow: hidden;
+            height: 125px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--surface-hover);
+        }
+
+        .about-photo-ribbon img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.35s;
+        }
+
+        .about-photo-ribbon figure:hover img {
+            transform: scale(1.07);
+        }
+
+        .about-photo-ribbon figcaption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 18px 10px 8px;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            background: linear-gradient(transparent, rgba(5, 9, 20, 0.88));
+        }
+
+        .project-tools {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 22px 0;
+        }
+
+        .filter-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .filter-button {
+            background: transparent;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 7px 13px;
+            font-size: 12px;
+        }
+
+        .filter-button:hover, .filter-button.active {
+            background: rgba(113, 135, 245, 0.16);
+            border-color: var(--accent);
+            color: var(--accent-bright);
+        }
+
+        .project-search {
+            width: min(100%, 245px);
+            background: var(--background);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: 9px 12px;
+            font-size: 12px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .project-card {
+            min-width: 0;
+            background: linear-gradient(145deg, var(--surface-hover), var(--surface-light));
+            border: 1px solid var(--border);
+            padding: 22px;
+            border-radius: 12px;
+            transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(145, 164, 255, 0.55);
+            box-shadow: 0 14px 30px var(--shadow);
+        }
+
+        .project-card[hidden] {
+            display: none;
+        }
+
+        .project-topline {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-number {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .project-image {
+            width: calc(100% + 44px);
+            height: 150px;
+            margin: -22px -22px 18px;
+            display: block;
+            object-fit: cover;
+            border-radius: 12px 12px 0 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            margin: 22px 0 12px;
+            border-radius: 12px;
+            color: var(--accent-bright);
+            font-size: 25px;
+            background: linear-gradient(135deg, rgba(113, 135, 245, 0.25), rgba(141, 115, 220, 0.20));
+            border: 1px solid var(--border);
+        }
+
+        .project-card h3 {
+            font-size: 19px;
+            margin: 0 0 8px;
+        }
+
+        .project-card > p {
+            color: var(--muted);
+            margin: 0 0 15px;
+            font-size: 13px;
+        }
+
+        .project-meta {
+            border-top: 1px solid var(--border);
+            padding-top: 12px;
+            color: var(--accent);
+            font-size: 10px;
+        }
+
+        .project-detail {
+            display: none;
+            color: var(--muted);
+            font-size: 12px;
+            margin: 14px 0 0;
+            padding-top: 12px;
+            border-top: 1px dashed var(--border);
+        }
+
+        .project-card.expanded .project-detail {
+            display: block;
+        }
+
+        .project-more, .copy-button {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--accent-bright);
+            border-radius: 7px;
+            padding: 8px 11px;
+            margin-top: 12px;
+            font-size: 11px;
+        }
+
+        .project-more:hover, .copy-button:hover {
+            background: var(--surface-hover);
+        }
+
+        .empty-message {
+            display: none;
+            color: var(--muted);
+            text-align: center;
+            padding: 25px;
+            border: 1px dashed var(--border);
+            border-radius: 10px;
+        }
+
+        .note {
+            color: var(--muted);
+            font-size: 11px;
+            margin: 18px 0 0;
+        }
+
+        .experience-grid, .about-layout, .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .info-card, .quote-panel {
+            background: rgba(145, 164, 255, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 21px;
+        }
+
+        .info-card p {
+            margin: 5px 0;
+        }
+
+        .skills, .interest-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .skills span, .interest-list span {
+            background: rgba(145, 164, 255, 0.11);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 6px 11px;
+            border-radius: 20px;
+            font-size: 11px;
+        }
+
+        blockquote {
+            color: var(--text);
+            font-size: 21px;
+            font-weight: bold;
+            line-height: 1.4;
+            margin: 0 0 12px;
+        }
+
+        .quote-credit {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .contact-email {
+            display: inline-block;
+            color: var(--accent-bright);
+            font-weight: bold;
+            margin-top: 8px;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 11px;
+        }
+
+        .contact-form label {
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .contact-form input, .contact-form textarea {
+            display: block;
+            width: 100%;
+            margin-top: 5px;
+            background: var(--background);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: 10px 12px;
+            font-size: 13px;
+        }
+
+        .contact-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .send-button {
+            justify-self: start;
+            background: linear-gradient(135deg, #7187f5, #8d73dc);
+            color: white;
+            border: 0;
+            border-radius: 7px;
+            padding: 10px 17px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        #formMessage {
+            min-height: 20px;
+            color: var(--accent-bright);
+            font-size: 11px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            background-color: var(--background);
+            color: var(--muted);
+            text-align: center;
+            padding: 25px 18px;
+            font-size: 11px;
+        }
+
+        footer p {
+            margin: 4px;
+        }
+
+        #clock {
+            color: var(--accent);
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #7187f5, #8d73dc);
+            color: white;
+            border: 0;
+            border-radius: 50%;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+            z-index: 15;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+
+        .hobby-gallery {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .hobby-photo {
+            grid-column: span 4;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            background: var(--card);
+        }
+
+        .hobby-photo.wide {
+            grid-column: span 6;
+        }
+
+        .hobby-photo img {
+            display: block;
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            transition: transform 0.35s ease;
+        }
+
+        .hobby-photo:hover img {
+            transform: scale(1.05);
+        }
+
+        .hobby-photo h3 {
+            margin: 0;
+            padding: 13px 15px 15px;
+            font-size: 15px;
+        }
+
+        .gallery-heading {
+            margin-top: 38px;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 760px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-layout {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            header {
+                text-align: center;
+                padding: 76px 20px 45px;
+            }
+
+            .hero-content .intro, .hero-content #greeting {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-content .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                min-height: 230px;
+                max-width: 420px;
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .hero-photo-main {
+                height: 190px;
+            }
+
+            .hero-photo-small {
+                width: 120px;
+                height: 88px;
+            }
+
+            .about-photo-ribbon figure {
+                height: 105px;
+            }
+
+            .experience-grid, .about-layout, .contact-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-inner {
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            .menu-button {
+                display: inline-block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 12px 2px 4px;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .project-search {
+                width: 100%;
+            }
+
+            .hobby-photo, .hobby-photo.wide {
+                grid-column: span 6;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                min-height: 410px;
+                padding: 70px 18px;
+            }
+
+            header h1 {
+                letter-spacing: -1.5px;
+            }
+
+            .top-controls {
+                top: 14px;
+                right: 14px;
+            }
+
+            main {
+                padding: 0 13px;
+                margin: 25px auto;
+            }
+
+            section {
+                border-radius: 12px;
+            }
+
+            .project-card {
+                padding: 18px;
+            }
+
+            .about-photo-ribbon {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-photo-ribbon figure:last-child {
+                display: none;
+            }
+
+            .hobby-photo, .hobby-photo.wide {
+                grid-column: span 1;
+            }
+
+            .hobby-photo img {
+                height: 210px;
+            }
+
+            .back-to-top {
+                right: 14px;
+                bottom: 14px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="scroll-track" aria-hidden="true">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+
+    <header id="home">
+        <div class="top-controls">
+            <button class="theme-button" id="themeButton" type="button" aria-label="Switch to light theme">☼ Light mode</button>
+        </div>
+
+        <div class="hero-layout">
+        <div class="hero-content">
+            <p class="eyebrow">ZACHARY TRISTAN GARY / PORTFOLIO</p>
+            <h1>Hello, I'm Zachary<span>.</span></h1>
+            <p class="intro">An IT graduate and Network Computing student who enjoys learning, collaborating and building things.</p>
+            <p id="greeting" aria-live="polite"></p>
+            <div class="hero-actions">
+                <a class="primary-link" href="#projects">Explore my work ↓</a>
+                <a class="secondary-link" href="#contact">Get in touch</a>
+            </div>
+        </div>
+        <div class="hero-visual" aria-label="A few personal interests">
+            <div class="hero-photo hero-photo-main">
+                <img src="https://i.redd.it/7c6sc7r27owa1.jpg" alt="A completed plastic model kit" fetchpriority="high">
+            </div>
+            <div class="hero-photo hero-photo-small hero-photo-one">
+                <img src="https://images.pexels.com/photos/2931618/pexels-photo-2931618.jpeg" alt="Outdoor scenery photography">
+            </div>
+            <div class="hero-photo hero-photo-small hero-photo-two">
+                <img src="https://corporate.bwfbadminton.com/wp-content/uploads/2018/05/Shuttle-AE-2018-613x290.jpg" alt="Badminton being played">
+            </div>
+            <span class="hero-caption">A LITTLE OF WHAT I ENJOY</span>
+        </div>
+        </div>
+    </header>
+
+    <nav aria-label="Main navigation">
+        <div class="nav-inner">
+            <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="navLinks">☰ Menu</button>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="active">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#about">About Me</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section id="about" class="reveal">
+            <p class="eyebrow">PROFILE</p>
+            <h2>About Me</h2>
+            <div class="about-layout">
+                <div>
+                    <p>I'm Zachary Tristan Gary, an undergraduate Bachelor of Network Computing student at Universiti Malaysia Sarawak (UNIMAS). Before that, I completed a Diploma in Information Technology at Multimedia University (MMU).</p>
+                    <p>My experience includes administrative support, meeting coordination and event assistance at Sarawak Energy Berhad. I value teamwork, clear communication, organisation and continuous learning.</p>
+                    <div class="interest-list">
+                        <span>Model kits</span><span>Badminton</span><span>Video games</span><span>Photography</span><span>Movies</span>
+                    </div>
+                </div>
+                <aside class="quote-panel">
+                    <p class="eyebrow">A LINE I LIKE</p>
+                    <blockquote>“Do not be sorry. Be better.”</blockquote>
+                    <p class="quote-credit">From <em>God of War</em>. A reminder that learning from mistakes and improving matters more than simply feeling bad about them.</p>
+                </aside>
+            </div>
+            <div class="about-photo-ribbon" aria-label="Personal interests">
+                <figure>
+                    <img src="https://corporate.bwfbadminton.com/wp-content/uploads/2018/05/Shuttle-AE-2018-613x290.jpg" alt="Badminton being played" loading="lazy">
+                    <figcaption>Badminton</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://i.ytimg.com/vi/x7PdF_GhnPY/maxresdefault.jpg" alt="Video game scene" loading="lazy">
+                    <figcaption>Video games</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/069/700/521/small/person-watching-a-blank-movie-screen-in-an-empty-cinema-photo.jpg" alt="A person watching a movie in a cinema" loading="lazy">
+                    <figcaption>Movies</figcaption>
+                </figure>
+            </div>
+            <div class="skills">
+                <span>Teamwork</span><span>Communication</span><span>Event planning</span><span>Meeting coordination</span><span>Time management</span><span>Organisation</span><span>Problem-solving</span><span>Adaptability</span><span>Microsoft Office</span>
+            </div>
+        </section>
+
+        <section id="projects" class="reveal">
+            <p class="eyebrow">SELECTED WORK & INTERESTS</p>
+            <h2>Projects & Highlights</h2>
+            <p class="section-intro">My academic work, experience and personal interests in one place. Use the filters to explore the collection.</p>
+
+            <div class="project-tools">
+                <div class="filter-list" aria-label="Filter projects">
+                    <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All</button>
+                    <button class="filter-button" type="button" data-filter="web" aria-pressed="false">IT & Studies</button>
+                    <button class="filter-button" type="button" data-filter="experience" aria-pressed="false">Experience</button>
+                    <button class="filter-button" type="button" data-filter="creative" aria-pressed="false">Personal</button>
+                </div>
+                <label>
+                    <span class="visually-hidden">Search projects</span>
+                    <input class="project-search" id="projectSearch" type="search" placeholder="Search projects..." autocomplete="off">
+                </label>
+            </div>
+
+            <div class="project-grid" id="projectGrid">
+                
+                <article class="project-card" data-category="web">
+                    <div class="project-topline"><span>01</span><span>Academic project</span></div>
+                    <div class="project-icon" aria-hidden="true">⌘</div>
+                    <h3>E-Commerce Shopping Website</h3>
+                    <p>Designed and developed an e-commerce website as a final-year project, using HTML and CSS for the interface, Java for functionality and MySQL for the database.</p>
+                    <div class="project-meta"><span>Java · HTML · CSS · MySQL</span></div>
+                    <p class="project-detail">My Diploma in Information Technology final-year project at Multimedia University. I worked on the website interface, functionality and testing. Add screenshots or a live demonstration link if you still have them.</p>
+                    <button class="project-more" type="button" aria-expanded="false">View details ↗</button>
+                </article>
+
+                <article class="project-card" data-category="experience">
+                    <div class="project-topline"><span>02</span><span>Work experience</span></div>
+                    <div class="project-icon" aria-hidden="true">▤</div>
+                    <h3>Administrative & Event Coordination</h3>
+                    <p>Supported meetings, educational sessions and company events during my administrative internship at Sarawak Energy Berhad.</p>
+                    <div class="project-meta"><span>Coordination · Teamwork · Organisation</span></div>
+                    <p class="project-detail">My responsibilities included schedule coordination, meeting arrangements, event support and working with staff across departments. I also supported the Diploma High Tea Celebration and joined electrical substation site visits.</p>
+                    <button class="project-more" type="button" aria-expanded="false">View details ↗</button>
+                </article>
+
+                <article class="project-card" data-category="creative">
+                    <img class="project-image" src="https://en.gundam-official.com/media/3f5dcf77ec4a3d7a057e1bdc7eb81f9a/3f5dcf77ec4a3d7a057e1bdc7eb81f9a.jpg" alt="Plastic model kit featured on the original homepage" loading="lazy">
+                    <div class="project-topline"><span>03</span><span>Personal interest</span></div>
+                    <div class="project-icon" aria-hidden="true">◇</div>
+                    <h3>Model Kit Builds</h3>
+                    <p>A collection of plastic model kits and builds, from careful assembly to finished display pieces.</p>
+                    <div class="project-meta"><span>Patience · Detail · Photography</span></div>
+                    <p class="project-detail">Building model kits is one of my favourite ways to spend free time. This section can become a photo gallery with build notes and finished-model pictures.</p>
+                    <button class="project-more" type="button" aria-expanded="false">View details ↗</button>
+                </article>
+
+                <article class="project-card" data-category="creative">
+                    <img class="project-image" src="https://images.pexels.com/photos/2931618/pexels-photo-2931618.jpeg" alt="Outdoor scenery photography example" loading="lazy">
+                    <div class="project-topline"><span>04</span><span>Personal interest</span></div>
+                    <div class="project-icon" aria-hidden="true">▧</div>
+                    <h3>Photography Journal</h3>
+                    <p>A visual journal for scenery, events and everyday moments that catch my attention.</p>
+                    <div class="project-meta"><span>Photography · Visual storytelling</span></div>
+                    <p class="project-detail">I enjoy taking photographs even without fancy equipment. Add a few of your own photographs here to turn this concept into a real portfolio gallery.</p>
+                    <button class="project-more" type="button" aria-expanded="false">View details ↗</button>
+                </article>
+
+                <article class="project-card" data-category="web">
+                    <div class="project-topline"><span>05</span><span>Current studies</span></div>
+                    <div class="project-icon" aria-hidden="true">◎</div>
+                    <h3>Network Computing Learning</h3>
+                    <p>An ongoing collection of learning experiences and practical work as a Bachelor of Network Computing student at UNIMAS.</p>
+                    <div class="project-meta"><span>Networking · IT · Problem-solving</span></div>
+                    <p class="project-detail">This section can be updated with real networking labs, assignments and technical exercises as they are completed. It is a study showcase, not a claim of a finished product.</p>
+                    <button class="project-more" type="button" aria-expanded="false">View details ↗</button>
+                </article>
+            </div>
+            <p class="empty-message" id="emptyMessage">No entries match that search. Try another keyword.</p>
+            <p class="note">The entries are labelled honestly: academic work and work experience are distinguished from personal interests and areas still being developed.</p>
+
+        </section>
+
+        <section id="experience" class="reveal">
+            <p class="eyebrow">WHERE I'VE BEEN</p>
+            <h2>Experience & Education</h2>
+            <div class="experience-grid">
+                <div class="info-card">
+                    <p class="eyebrow">JULY 2023 — JANUARY 2024</p>
+                    <h3>Administrative Intern</h3>
+                    <p><strong>Sarawak Energy Berhad</strong></p>
+                    <ul>
+                        <li>Assisted with meetings, educational sessions and company events.</li>
+                        <li>Helped coordinate schedules and administrative activities.</li>
+                        <li>Supported the planning of the Diploma High Tea Celebration.</li>
+                        <li>Worked with staff from different departments and joined electrical substation site visits.</li>
+                    </ul>
+                    <p>My internship was extended by three months due to organisational needs and a recommendation from my supervisor.</p>
+                </div>
+                <div class="info-card">
+                    <p class="eyebrow">EDUCATION</p>
+                    <h3>Universiti Malaysia Sarawak (UNIMAS)</h3>
+                    <p>Bachelor of Network Computing</p>
+                    <p>2024 – Present</p>
+                    <hr>
+                    <h3>Multimedia University (MMU)</h3>
+                    <p>Diploma in Information Technology</p>
+                    <p>2021 – 2023</p>
+                    <hr>
+                    <p><strong>Languages</strong></p>
+                    <p>English · Bahasa Malaysia · Hokkien · Bahasa Sarawak · Iban (understanding; not speaking)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="reveal">
+            <p class="eyebrow">LET'S CONNECT</p>
+            <h2>Contact</h2>
+            <p class="section-intro">Have a question, an idea or an opportunity? Feel free to send me a message.</p>
+            <div class="contact-layout">
+                <div>
+                    <h3>Let's start a conversation.</h3>
+                    <p>You can reach me directly by email.</p>
+                    <a class="contact-email" id="emailAddress" href="mailto:zactristan@gmail.com">zactristan@gmail.com</a>
+                    <br>
+                    <button class="copy-button" id="copyEmailButton" type="button">Copy email address</button>
+                    <p class="note">This contact form opens your default email application. It does not send or store messages on this website.</p>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <label for="visitorName">Your name</label>
+                    <input id="visitorName" name="visitorName" type="text" placeholder="Enter your name" autocomplete="name" required>
+
+                    <label for="visitorEmail">Your email</label>
+                    <input id="visitorEmail" name="visitorEmail" type="email" placeholder="name@example.com" autocomplete="email" required>
+
+                    <label for="visitorMessage">Your message</label>
+                    <textarea id="visitorMessage" name="visitorMessage" placeholder="Write your message here..." required></textarea>
+
+                    <button class="send-button" type="submit">Prepare email ↗</button>
+                    <p id="formMessage" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">↑</button>
+
+    <footer>
+        <p>Made by Zachary Tristan Gary | Personal Portfolio</p>
+        <p id="clock">Thanks for visiting!</p>
+        <p>Built with HTML, CSS and JavaScript.</p>
+    </footer>
+
+    <script>
+        // Set the email address used by the contact section
+        var contactEmail = "zactristan@gmail.com";
+
+        // Display the current time
+        function updateClock() {
+            var now = new Date();
+            document.getElementById("clock").innerHTML =
+                "Current time: " + now.toLocaleTimeString();
+        }
+
+        // Show a greeting based on the current time
+        function showGreeting() {
+            var hour = new Date().getHours();
+            var greeting = "Hello there!";
+
+            if (hour < 12) {
+                greeting = "Good morning! Thanks for stopping by.";
+            } else if (hour < 18) {
+                greeting = "Good afternoon! Have a look around.";
+            } else {
+                greeting = "Good evening! Hope you're having a good day.";
+            }
+
+            document.getElementById("greeting").innerHTML = greeting;
+        }
+
+        // Switch between dark and light themes
+        function changeTheme() {
+            var body = document.body;
+            var button = document.getElementById("themeButton");
+            var isLight = body.classList.toggle("light-mode");
+
+            if (isLight) {
+                button.innerHTML = "☾ Dark mode";
+                button.setAttribute("aria-label", "Switch to dark theme");
+                localStorage.setItem("portfolioTheme", "light");
+            } else {
+                button.innerHTML = "☼ Light mode";
+                button.setAttribute("aria-label", "Switch to light theme");
+                localStorage.setItem("portfolioTheme", "dark");
+            }
+        }
+
+        // Load the saved theme when the page opens
+        function loadTheme() {
+            var savedTheme = localStorage.getItem("portfolioTheme");
+            var button = document.getElementById("themeButton");
+
+            if (savedTheme == "light") {
+                document.body.classList.add("light-mode");
+                button.innerHTML = "☾ Dark mode";
+                button.setAttribute("aria-label", "Switch to dark theme");
+            }
+        }
+
+        // Open and close the mobile navigation menu
+        function toggleMenu() {
+            var menu = document.getElementById("navLinks");
+            var button = document.getElementById("menuButton");
+            var isOpen = menu.classList.toggle("open");
+
+            button.setAttribute("aria-expanded", isOpen);
+            button.innerHTML = isOpen ? "✕ Close" : "☰ Menu";
+        }
+
+        // Filter project cards by category
+        function filterProjects(category) {
+            var buttons = document.querySelectorAll(".filter-button");
+
+            buttons.forEach(function(button) {
+                var isActive = button.getAttribute("data-filter") == category;
+                button.classList.toggle("active", isActive);
+                button.setAttribute("aria-pressed", isActive);
+            });
+
+            document.getElementById("projectSearch").dataset.category = category;
+            searchProjects();
+        }
+
+        // Search project titles and descriptions
+        function searchProjects() {
+            var searchText = document.getElementById("projectSearch").value.toLowerCase().trim();
+            var category = document.getElementById("projectSearch").dataset.category || "all";
+            var cards = document.querySelectorAll(".project-card");
+            var visibleCount = 0;
+
+            cards.forEach(function(card) {
+                var matchesSearch = card.innerText.toLowerCase().includes(searchText);
+                var matchesCategory = category == "all" || card.getAttribute("data-category") == category;
+                var shouldShow = matchesSearch && matchesCategory;
+
+                card.hidden = !shouldShow;
+
+                if (shouldShow) {
+                    visibleCount++;
+                }
+            });
+
+            document.getElementById("emptyMessage").style.display =
+                visibleCount == 0 ? "block" : "none";
+        }
+
+        // Expand or collapse extra information on a project card
+        function toggleProjectDetails(button) {
+            var card = button.closest(".project-card");
+            var isExpanded = card.classList.toggle("expanded");
+
+            button.setAttribute("aria-expanded", isExpanded);
+            button.innerHTML = isExpanded ? "Show less ↑" : "View details ↗";
+        }
+
+        // Copy the contact email address
+        async function copyEmail() {
+            var button = document.getElementById("copyEmailButton");
+
+            try {
+                await navigator.clipboard.writeText(contactEmail);
+                button.innerHTML = "Email copied!";
+            } catch (error) {
+                button.innerHTML = "Copy unavailable — " + contactEmail;
+            }
+        }
+
+        // Prepare a message using the visitor's default email application
+        function prepareEmail(event) {
+            event.preventDefault();
+
+            var name = document.getElementById("visitorName").value.trim();
+            var email = document.getElementById("visitorEmail").value.trim();
+            var message = document.getElementById("visitorMessage").value.trim();
+            var status = document.getElementById("formMessage");
+
+            if (name == "" || email == "" || message == "") {
+                status.innerHTML = "Please complete all fields before continuing.";
+                return;
+            }
+
+            var subject = encodeURIComponent("Portfolio website message from " + name);
+            var body = encodeURIComponent(
+                "Name: " + name + "\nEmail: " + email + "\n\n" + message
+            );
+
+            status.innerHTML = "Opening your email application...";
+            window.location.href = "mailto:" + contactEmail + "?subject=" + subject + "&body=" + body;
+        }
+
+        // Update the page scroll indicator and back-to-top button
+        function updateScrollControls() {
+            var scrollTop = window.scrollY;
+            var pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+            var progress = pageHeight > 0 ? (scrollTop / pageHeight) * 100 : 0;
+
+            document.getElementById("scrollProgress").style.width = progress + "%";
+            document.getElementById("backToTop").classList.toggle("show", scrollTop > 350);
+        }
+
+        // Highlight the navigation link for the section currently being viewed
+        function updateActiveNavigation() {
+            var sections = document.querySelectorAll("main section");
+            var links = document.querySelectorAll(".nav-links a");
+            var currentSection = "home";
+
+            sections.forEach(function(section) {
+                if (window.scrollY >= section.offsetTop - 150) {
+                    currentSection = section.id;
+                }
+            });
+
+            links.forEach(function(link) {
+                var isActive = link.getAttribute("href") == "#" + currentSection;
+                link.classList.toggle("active", isActive);
+            });
+        }
+
+        // Reveal sections as they enter the screen
+        function setupRevealEffects() {
+            var elements = document.querySelectorAll(".reveal");
+
+            if ("IntersectionObserver" in window) {
+                var observer = new IntersectionObserver(function(entries, revealObserver) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12 });
+
+                elements.forEach(function(element) {
+                    observer.observe(element);
+                });
+            } else {
+                elements.forEach(function(element) {
+                    element.classList.add("visible");
+                });
+            }
+        }
+
+        // Connect all interactive elements after the page has loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            loadTheme();
+            showGreeting();
+            updateClock();
+            updateScrollControls();
+            updateActiveNavigation();
+            setupRevealEffects();
+
+            setInterval(updateClock, 1000);
+
+            document.getElementById("themeButton").addEventListener("click", changeTheme);
+            document.getElementById("menuButton").addEventListener("click", toggleMenu);
+            document.getElementById("projectSearch").addEventListener("input", searchProjects);
+            document.getElementById("copyEmailButton").addEventListener("click", copyEmail);
+            document.getElementById("contactForm").addEventListener("submit", prepareEmail);
+            document.getElementById("backToTop").addEventListener("click", function() {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+
+            document.querySelectorAll(".filter-button").forEach(function(button) {
+                button.addEventListener("click", function() {
+                    filterProjects(button.getAttribute("data-filter"));
+                });
+            });
+
+            document.querySelectorAll(".project-more").forEach(function(button) {
+                button.addEventListener("click", function() {
+                    toggleProjectDetails(button);
+                });
+            });
+
+            document.querySelectorAll(".nav-links a").forEach(function(link) {
+                link.addEventListener("click", function() {
+                    document.getElementById("navLinks").classList.remove("open");
+                    document.getElementById("menuButton").setAttribute("aria-expanded", "false");
+                    document.getElementById("menuButton").innerHTML = "☰ Menu";
+                });
+            });
+
+            window.addEventListener("scroll", function() {
+                updateScrollControls();
+                updateActiveNavigation();
+            }, { passive: true });
+
+            window.addEventListener("resize", updateScrollControls);
+        });
+    </script>
+</body>
+</html>

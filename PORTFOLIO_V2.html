@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zachary Tristan Gary - personal portfolio and resume website.">
+    <title>Zachary Tristan Gary | Portfolio</title>
+    <style>
+
+        :root {
+            --background: #0b1020;
+            --surface: #141d35;
+            --surface-light: #1b2948;
+            --text: #eef2ff;
+            --muted: #aab5d2;
+            --accent: #91a4ff;
+            --border: rgba(176, 190, 255, 0.16);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 15% 5%, rgba(89, 105, 220, 0.20), transparent 30%),
+                radial-gradient(circle at 90% 35%, rgba(123, 75, 190, 0.13), transparent 28%),
+                var(--background);
+            color: var(--text);
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 3px solid #b6c2ff;
+            outline-offset: 4px;
+        }
+
+        header {
+            min-height: 410px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 70px 20px;
+            background: linear-gradient(135deg, #1e2a56, #34275e);
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin: 0 0 12px;
+        }
+
+        header .eyebrow {
+            color: #c4ceff;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(40px, 7vw, 72px);
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+
+        header h1 span {
+            color: #aebaff;
+        }
+
+        header p:not(.eyebrow) {
+            color: #d2d9f3;
+        }
+
+        .primary-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #7187f5, #8d73dc);
+            color: white;
+            text-decoration: none;
+            padding: 11px 18px;
+            margin-top: 12px;
+            border-radius: 7px;
+            font-weight: bold;
+        }
+
+        nav {
+            background-color: rgba(12, 18, 36, 0.95);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            padding: 14px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(12px);
+        }
+
+        nav a {
+            color: #dce3ff;
+            text-decoration: none;
+            margin: 0 13px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        main {
+            max-width: 1120px;
+            margin: 42px auto;
+            padding: 0 22px;
+        }
+
+        section {
+            background: linear-gradient(145deg, rgba(24, 35, 63, 0.97), rgba(17, 26, 48, 0.97));
+            border: 1px solid var(--border);
+            margin-bottom: 25px;
+            padding: clamp(22px, 4vw, 38px);
+            border-radius: 16px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.17);
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: clamp(26px, 4vw, 34px);
+            margin: 0 0 12px;
+        }
+
+        h3 {
+            color: var(--text);
+        }
+
+        section p, section li {
+            color: #c4cde6;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 22px;
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, #233153, #1a2542);
+            border: 1px solid var(--border);
+            padding: 22px;
+            border-radius: 12px;
+            transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(145, 164, 255, 0.55);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.20);
+        }
+
+        .project-topline {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            color: var(--muted);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-icon {
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            margin: 20px 0 12px;
+            border-radius: 12px;
+            color: #dce3ff;
+            font-size: 24px;
+            background: linear-gradient(135deg, rgba(113, 135, 245, 0.30), rgba(141, 115, 220, 0.25));
+        }
+
+        .project-card h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+        }
+
+        .project-card p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .project-meta {
+            border-top: 1px solid var(--border);
+            padding-top: 12px;
+            color: var(--accent);
+            font-size: 11px;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .info-card {
+            background: rgba(145, 164, 255, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            padding: 19px;
+        }
+
+        .info-card p {
+            margin-bottom: 4px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .skills span {
+            background: rgba(145, 164, 255, 0.11);
+            border: 1px solid var(--border);
+            color: #dce3ff;
+            padding: 6px 11px;
+            border-radius: 20px;
+            font-size: 11px;
+        }
+
+        .contact-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            background: rgba(113, 135, 245, 0.09);
+            border: 1px solid var(--border);
+            padding: 22px;
+            border-radius: 12px;
+        }
+
+        footer {
+            background-color: #090e1c;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            text-align: center;
+            padding: 22px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 760px) {
+            .project-grid, .experience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 34px;
+            }
+
+            main {
+                padding: 0 13px;
+                margin: 25px auto;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header id="home">
+        <p class="eyebrow">ZACHARY TRISTAN GARY / PORTFOLIO</p>
+        <h1>Hello, I'm Zachary<span>.</span></h1>
+        <p>Network Computing student with an Information Technology background.</p>
+        <a class="primary-link" href="#projects">Explore my work ↓</a>
+    </header>
+
+    <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About Me</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <section id="about">
+            <p class="eyebrow">PROFILE</p>
+            <h2>About Me</h2>
+            <p>I'm Zachary Tristan Gary, an undergraduate Bachelor of Network Computing student at Universiti Malaysia Sarawak (UNIMAS), with a Diploma in Information Technology from Multimedia University (MMU).</p>
+            <p>My experience includes administrative support, meeting coordination and event assistance at Sarawak Energy Berhad. I value teamwork, clear communication, organisation and continuous learning.</p>
+            <div class="skills">
+                <span>Teamwork</span><span>Communication</span><span>Event planning</span><span>Meeting coordination</span><span>Time management</span><span>Problem-solving</span><span>Adaptability</span><span>Microsoft Office</span>
+            </div>
+        </section>
+
+        <section id="projects">
+            <p class="eyebrow">SELECTED WORK & INTERESTS</p>
+            <h2>Projects & Highlights</h2>
+            <p>My academic work, experience and personal interests in one place.</p>
+            <div class="project-grid">
+                
+                <article class="project-card" data-category="web">
+                    <div class="project-topline"><span>01</span><span>Academic project</span></div>
+                    <div class="project-icon" aria-hidden="true">⌘</div>
+                    <h3>E-Commerce Shopping Website</h3>
+                    <p>Designed and developed an e-commerce website as a final-year project, using HTML and CSS for the interface, Java for functionality and MySQL for the database.</p>
+                    <div class="project-meta">Java · HTML · CSS · MySQL</div>
+                </article>
+
+                <article class="project-card" data-category="experience">
+                    <div class="project-topline"><span>02</span><span>Work experience</span></div>
+                    <div class="project-icon" aria-hidden="true">▤</div>
+                    <h3>Administrative & Event Coordination</h3>
+                    <p>Supported meetings, educational sessions and company events during my administrative internship at Sarawak Energy Berhad.</p>
+                    <div class="project-meta">Coordination · Teamwork · Organisation</div>
+                </article>
+
+                <article class="project-card" data-category="creative">
+                    <div class="project-topline"><span>03</span><span>Personal interest</span></div>
+                    <div class="project-icon" aria-hidden="true">◇</div>
+                    <h3>Model Kit Builds</h3>
+                    <p>A collection of plastic model kits and builds, from careful assembly to finished display pieces.</p>
+                    <div class="project-meta">Patience · Detail · Photography</div>
+                </article>
+
+                <article class="project-card" data-category="creative">
+                    <div class="project-topline"><span>04</span><span>Personal interest</span></div>
+                    <div class="project-icon" aria-hidden="true">▧</div>
+                    <h3>Photography Journal</h3>
+                    <p>A visual journal for scenery, events and everyday moments that catch my attention.</p>
+                    <div class="project-meta">Photography · Visual storytelling</div>
+                </article>
+
+                <article class="project-card" data-category="web">
+                    <div class="project-topline"><span>05</span><span>Current studies</span></div>
+                    <div class="project-icon" aria-hidden="true">◎</div>
+                    <h3>Network Computing Learning</h3>
+                    <p>An ongoing collection of learning experiences and practical work as a Bachelor of Network Computing student at UNIMAS.</p>
+                    <div class="project-meta">Networking · IT · Problem-solving</div>
+                </article>
+            </div>
+            <p><small>Personal interests and learning areas are labelled clearly; they are not presented as completed software projects.</small></p>
+        </section>
+
+        <section id="experience">
+            <p class="eyebrow">WHERE I'VE BEEN</p>
+            <h2>Experience & Education</h2>
+            <div class="experience-grid">
+                <div class="info-card">
+                    <h3>Administrative Intern</h3>
+                    <p><strong>Sarawak Energy Berhad</strong></p>
+                    <p>July 2023 – January 2024</p>
+                    <p>Supported meetings, educational sessions, company events, schedules and administrative activities. Assisted with the Diploma High Tea Celebration and participated in electrical substation site visits.</p>
+                    <p>My internship was extended by three months due to organisational needs and a recommendation from my supervisor.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Education</h3>
+                    <p><strong>UNIMAS</strong></p>
+                    <p>Bachelor of Network Computing</p>
+                    <p>2024 – Present</p>
+                    <hr>
+                    <p><strong>Multimedia University (MMU)</strong></p>
+                    <p>Diploma in Information Technology</p>
+                    <p>2021 – 2023</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <p class="eyebrow">LET'S CONNECT</p>
+            <h2>Contact</h2>
+            <div class="contact-panel">
+                <div>
+                    <h3>Have a question or an opportunity?</h3>
+                    <p>Feel free to contact me by email.</p>
+                </div>
+                <a class="primary-link" href="mailto:zactristan@gmail.com">zactristan@gmail.com ↗</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made by Zachary Tristan Gary | Personal Portfolio</p>
+        <p id="clock">Thanks for visiting!</p>
+    </footer>
+
+    <script>
+        // Display the current time
+        function updateClock() {
+            var now = new Date();
+            document.getElementById("clock").innerHTML =
+                "Current time: " + now.toLocaleTimeString();
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>

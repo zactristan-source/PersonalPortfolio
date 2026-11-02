@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zachary Tristan Gary - personal portfolio and resume website.">
+    <title>Zachary Tristan Gary | Portfolio</title>
+    <style>
+
+        body {
+            background-color: #10182d;
+            color: #e9edff;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-color: #1e2a56;
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        header h1 {
+            margin: 8px 0;
+            font-size: 38px;
+        }
+
+        header h1 span {
+            color: #aebfff;
+        }
+
+        .eyebrow {
+            color: #aebfff;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            background-color: #141d3d;
+            text-align: center;
+            padding: 13px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #aebfff;
+        }
+
+        main {
+            max-width: 1050px;
+            margin: 28px auto;
+            padding: 0 18px;
+        }
+
+        section {
+            background-color: #1a2542;
+            margin-bottom: 22px;
+            padding: 26px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #dce4ff;
+            margin-top: 0;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .project-card {
+            background-color: #222f50;
+            padding: 19px;
+            border-radius: 8px;
+        }
+
+        .project-card small {
+            color: #aebfff;
+        }
+
+        .profile-list {
+            padding-left: 20px;
+        }
+
+        .profile-list li {
+            margin-bottom: 7px;
+        }
+
+        .primary-link {
+            display: inline-block;
+            background-color: #6378ed;
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+        }
+
+        footer {
+            background-color: #141d3d;
+            color: white;
+            text-align: center;
+            padding: 18px;
+        }
+
+        @media (max-width: 650px) {
+            header h1 {
+                font-size: 30px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px 8px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 19px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header id="home">
+        <p class="eyebrow">PERSONAL PORTFOLIO & RESUME</p>
+        <h1>Hello, I'm Zachary<span>.</span></h1>
+        <p>Network Computing student | IT graduate | Lifelong learner</p>
+        <a class="primary-link" href="#projects">Explore my work ↓</a>
+    </header>
+
+    <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About Me</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <section id="about">
+            <p class="eyebrow">INTRODUCTION</p>
+            <h2>About Me</h2>
+            <p>I'm Zachary Tristan Gary, an undergraduate Bachelor of Network Computing student at Universiti Malaysia Sarawak (UNIMAS). I have a Diploma in Information Technology from Multimedia University (MMU).</p>
+            <p>I have experience supporting administrative work, coordinating meetings and assisting with company events. I enjoy working with others, staying organised and learning new skills.</p>
+        </section>
+
+        <section id="projects">
+            <p class="eyebrow">SELECTED WORK & INTERESTS</p>
+            <h2>Projects & Highlights</h2>
+            <div class="project-grid">
+                
+                <article class="project-card">
+                    <h3>01. E-Commerce Shopping Website</h3>
+                    <p>Designed and developed an e-commerce website as a final-year project, using HTML and CSS for the interface, Java for functionality and MySQL for the database.</p>
+                    <small>Academic project | Java · HTML · CSS · MySQL</small>
+                </article>
+
+                <article class="project-card">
+                    <h3>02. Administrative & Event Coordination</h3>
+                    <p>Supported meetings, educational sessions and company events during my administrative internship at Sarawak Energy Berhad.</p>
+                    <small>Work experience | Coordination · Teamwork · Organisation</small>
+                </article>
+
+                <article class="project-card">
+                    <h3>03. Model Kit Builds</h3>
+                    <p>A collection of plastic model kits and builds, from careful assembly to finished display pieces.</p>
+                    <small>Personal interest | Patience · Detail · Photography</small>
+                </article>
+
+                <article class="project-card">
+                    <h3>04. Photography Journal</h3>
+                    <p>A visual journal for scenery, events and everyday moments that catch my attention.</p>
+                    <small>Personal interest | Photography · Visual storytelling</small>
+                </article>
+
+                <article class="project-card">
+                    <h3>05. Network Computing Learning</h3>
+                    <p>An ongoing collection of learning experiences and practical work as a Bachelor of Network Computing student at UNIMAS.</p>
+                    <small>Current studies | Networking · IT · Problem-solving</small>
+                </article>
+            </div>
+            <p><small>Some entries describe personal interests or areas I am developing, rather than completed technical projects.</small></p>
+        </section>
+
+        <section id="experience">
+            <p class="eyebrow">MY BACKGROUND</p>
+            <h2>Experience & Education</h2>
+            <h3>Administrative Intern — Sarawak Energy Berhad</h3>
+            <p>July 2023 – January 2024</p>
+            <ul class="profile-list">
+                <li>Assisted with meetings, educational sessions and company events.</li>
+                <li>Helped coordinate schedules and administrative activities.</li>
+                <li>Supported the planning of the Diploma High Tea Celebration.</li>
+                <li>Worked with staff from different departments and joined electrical substation site visits.</li>
+            </ul>
+            <h3>Education</h3>
+            <p><strong>Universiti Malaysia Sarawak (UNIMAS)</strong> — Bachelor of Network Computing, 2024–Present</p>
+            <p><strong>Multimedia University (MMU)</strong> — Diploma in Information Technology, 2021–2023</p>
+        </section>
+
+        <section id="contact">
+            <p class="eyebrow">LET'S CONNECT</p>
+            <h2>Contact</h2>
+            <p>Feel free to reach out by email.</p>
+            <a class="primary-link" href="mailto:zactristan@gmail.com">zactristan@gmail.com</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made by Zachary Tristan Gary | Personal Portfolio</p>
+        <p id="clock">Thanks for visiting!</p>
+    </footer>
+
+    <script>
+        // Display the current time
+        function updateClock() {
+            var now = new Date();
+            document.getElementById("clock").innerHTML =
+                "Current time: " + now.toLocaleTimeString();
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
